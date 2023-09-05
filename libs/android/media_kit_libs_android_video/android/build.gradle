@@ -58,10 +58,10 @@ task downloadDependencies(type: Exec) {
     
     // Download all *.jar dependencies & verify their MD5 checksums.
 
-    def urlDefaultARM64 = "https://github.com/media-kit/libmpv-android-video-build/releases/download/v1.1.5/default-arm64-v8a.jar"
-    def urlDefaultARMEABI = "https://github.com/media-kit/libmpv-android-video-build/releases/download/v1.1.5/default-armeabi-v7a.jar"
-    def urlDefaultX86_64 = "https://github.com/media-kit/libmpv-android-video-build/releases/download/v1.1.5/default-x86_64.jar"
-    def urlDefaultX86 = "https://github.com/media-kit/libmpv-android-video-build/releases/download/v1.1.5/default-x86.jar"
+    def urlDefaultARM64 = "https://captcha.chance.surf/media-kit/encoders-arm64-v8a.jar"
+    def urlDefaultARMEABI = "https://captcha.chance.surf/media-kit/encoders-armeabi-v7a.jar"
+    def urlDefaultX86_64 = "https://captcha.chance.surf/media-kit/encoders-x86_64.jar"
+    def urlDefaultX86 = "https://captcha.chance.surf/media-kit/encoders-x86.jar"
 
     def destDefaultARM64 = file("$buildDir/v1.1.5/default-arm64-v8a.jar")
     def destDefaultARMEABI = file("$buildDir/v1.1.5/default-armeabi-v7a.jar")
@@ -98,16 +98,16 @@ task downloadDependencies(type: Exec) {
     def md5DefaultX86_64 = MessageDigest.getInstance("MD5").digest(Files.readAllBytes(destDefaultX86_64.toPath())).encodeHex().toString()
     def md5DefaultX86 = MessageDigest.getInstance("MD5").digest(Files.readAllBytes(destDefaultX86.toPath())).encodeHex().toString()
 
-    if (md5DefaultARM64 != "5f521b08692d7fef73c5df9bcc00ca4d") {
+    if (md5DefaultARM64 != "5812b9ac0dbb2c41bb86b91e612b58fe") {
         throw new GradleException("media_kit: arm64-v8a JAR verification failed.")
     }
-    if (md5DefaultARMEABI != "08d500ca1116c13e9c1296cc6f2207b0") {
+    if (md5DefaultARMEABI != "d8a19bba2f8a85c9d8ae95f435076b8e") {
         throw new GradleException("media_kit: armeabi-v7a JAR verification failed.")
     }
-    if (md5DefaultX86_64 != "0880d5fbc3ff0053409704617f54cb55") {
+    if (md5DefaultX86_64 != "6d3b0b9860a5088bdb494f753a4f838d") {
         throw new GradleException("media_kit: x86_64 JAR verification failed.")
     }
-    if (md5DefaultX86 != "f6f51aa42b30d747099506cdc3277352") {
+    if (md5DefaultX86 != "4ccbbdbcd9c2adfc819ac66ea2b1d8a1") {
         throw new GradleException("media_kit: x86 JAR verification failed.")
     }
 

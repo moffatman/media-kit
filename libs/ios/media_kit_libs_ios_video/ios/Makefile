@@ -1,13 +1,13 @@
 all: Frameworks/*.xcframework Frameworks/.symlinks
 
 MPV_XCFRAMEWORKS_VERSION=v0.6.0
-MPV_XCFRAMEWORKS_SHA256SUM=c80a579d3545872383caaf4e9f620d852b8f16df36aeccdeb719104cc6a7ea49
+MPV_XCFRAMEWORKS_SHA256SUM=c2ffa7cebdb1009fb2b245bfdc9af9789da1185c13231beb89ff3c0ed542efdb
 
 .cache/xcframeworks/libmpv-xcframeworks-${MPV_XCFRAMEWORKS_VERSION}-ios-universal.tar.gz:
 	mkdir -p .cache/xcframeworks
 	rm -f .cache/xcframeworks/*.tmp .cache/xcframeworks/*-ios-universal.tar.gz
 	curl -L \
-		https://captcha.chance.surf/media-kit/libmpv-xcframeworks_develop_ios-universal-video-encoders.tar.gz \
+		https://captcha.chance.surf/media-kit-2/libmpv-xcframeworks_develop_ios-universal-video-encodersgpl.tar.gz \
 		-o .cache/xcframeworks/libmpv.tar.gz.tmp
 	shasum -a 256 -c <<< '${MPV_XCFRAMEWORKS_SHA256SUM}  .cache/xcframeworks/libmpv.tar.gz.tmp'
 	mv .cache/xcframeworks/libmpv.tar.gz.tmp .cache/xcframeworks/libmpv-xcframeworks-${MPV_XCFRAMEWORKS_VERSION}-ios-universal.tar.gz

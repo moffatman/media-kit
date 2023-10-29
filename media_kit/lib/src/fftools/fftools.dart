@@ -246,6 +246,10 @@ class FFTools {
 				// Statically-linked within libmpv
 				'libmpv.so',
 			],
+			'windows': [
+				// Statically-linked within libmpv
+				'libmpv-2.dll'
+			]
 		}[Platform.operatingSystem];
 		for (final name in names ?? const Iterable.empty()) {
 			try {

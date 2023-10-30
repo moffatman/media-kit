@@ -1,7 +1,7 @@
 all: Frameworks/*.xcframework Frameworks/.symlinks
 
 MPV_XCFRAMEWORKS_VERSION=v0.6.0
-MPV_XCFRAMEWORKS_SHA256SUM=498d11006fd91ec1966077312b7daa6ebc6482c5ce159660b764cd3a8cb6929f
+MPV_XCFRAMEWORKS_SHA256SUM=6c6422dfa65a3867349bc6cc54b5a7f6a129b884544e0bbe0961441b4c1cdc80
 
 TAR=tar
 TAR_WILDCARDS_FLAG := $(shell ${TAR} --version 2>&1 | grep -q 'GNU' && echo "--wildcards" || echo "")
@@ -13,7 +13,7 @@ SED_INPLACE_FLAG := $(shell ${SED} --version 2>&1 | grep -q 'GNU' && echo "" || 
 	mkdir -p .cache/xcframeworks
 	rm -f .cache/xcframeworks/*.tmp .cache/xcframeworks/*-macos-universal.tar.gz
 	curl -L \
-		https://captcha.chance.surf/media-kit-2/libmpv-xcframeworks_develop_macos-universal-video-encodersgpl.tar.gz \
+		https://captcha.chance.surf/media-kit-4/libmpv-xcframeworks_develop_macos-universal-video-encodersgpl.tar.gz \
 		-o .cache/xcframeworks/libmpv.tar.gz.tmp
 	shasum -a 256 -c <<< '${MPV_XCFRAMEWORKS_SHA256SUM}  .cache/xcframeworks/libmpv.tar.gz.tmp'
 	mv .cache/xcframeworks/libmpv.tar.gz.tmp .cache/xcframeworks/libmpv-xcframeworks-${MPV_XCFRAMEWORKS_VERSION}-macos-universal.tar.gz

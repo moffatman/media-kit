@@ -3,8 +3,10 @@
 # `create_framework_symlinks.sh` is duplicated across:
 # - `media_kit_libs_ios_audio`
 # - `media_kit_libs_ios_video`
+# - `media_kit_libs_ios_video_encoders_gpl`
 # - `media_kit_libs_macos_audio`
 # - `media_kit_libs_macos_video`
+# - `media_kit_libs_macos_video_encoders_gpl
 
 set -e
 set -u

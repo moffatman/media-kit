@@ -5,7 +5,7 @@
  * All rights reserved.
  * Use of this source code is governed by MIT license that can be found in the LICENSE file.
  */
-package com.alexmercerind.media_kit_libs_android_video;
+package com.alexmercerind.media_kit_libs_android_video_encoders_gpl;
 
 import java.util.Arrays;
 import java.util.HashMap;

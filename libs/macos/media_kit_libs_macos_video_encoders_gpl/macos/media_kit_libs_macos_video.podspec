@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
                        DESC
   s.homepage         = 'https://github.com/media-kit/media-kit.git'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Hitesh Kumar Saini' => 'saini123hitesh@gmail.com' }
+  s.author           = { 'Callum Moffat' => 'callum@moffatman.com' }
 
   s.source           = { :path => '.' }
   s.source_files     = 'Classes/**/*'

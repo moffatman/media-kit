@@ -1,0 +1,17 @@
+name: media_kit_libs_video_encoders_gpl
+description: package:media_kit video (& audio) native transcoding libraries for all platforms.
+version: 1.0.0
+homepage: https://github.com/media-kit/media-kit.git
+repository: https://github.com/media-kit/media-kit.git
+
+environment:
+  sdk: ">=2.17.0 <4.0.0"
+  flutter: ">=3.7.0"
+
+dependencies:
+  media_kit_native_event_loop: ^1.0.8
+  media_kit_libs_android_video_encoders_gpl: ^1.3.6
+  media_kit_libs_ios_video_encoders_gpl: ^1.1.4
+  media_kit_libs_macos_video_encoders_gpl: ^1.1.4
+  media_kit_libs_windows_video_encoders_gpl: ^1.0.9
+  media_kit_libs_linux: ^1.1.3

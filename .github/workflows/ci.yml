@@ -537,3 +537,106 @@ jobs:
 
       - run: flutter pub get
       - run: flutter build apk --split-per-abi --verbose
+
+  video-encoders-gpl-libs-windows:
+    name: Windows (video-encoders-gpl libs)
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: media_kit_test
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "true"
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
+      - name: Remove `media_kit_libs_*` dependencies
+        run: |
+          "C:\Program Files\Git\usr\bin\sed.exe" -i "s/\bmedia_kit_libs\([^[ ]*\)_video\b/media_kit_libs\1_video_encoders_gpl/g" pubspec.yaml
+          type pubspec.yaml
+        shell: cmd
+      - run: flutter pub get
+      - run: flutter build windows --verbose
+
+  video-encoders-gpl-libs-linux:
+    name: Linux (video-encoders-gpl libs)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: media_kit_test
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "true"
+      - run: sudo apt-get update
+      - run: sudo apt-get install clang cmake ninja-build pkg-config libgtk-3-dev mpv libmpv-dev dpkg-dev p7zip-full p7zip-rar
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
+      - name: Remove `media_kit_libs_*` dependencies
+        run: |
+          sed -i 's/\bmedia_kit_libs\([^[ ]*\)_video\b/media_kit_libs\1_video_encoders_gpl/g' pubspec.yaml
+          cat pubspec.yaml
+      - run: flutter pub get
+      - run: flutter build linux --verbose
+
+  video-encoders-gpl-libs-macos:
+    name: macOS (video-encoders-gpl libs)
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: media_kit_test
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "true"
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
+      - name: Remove `media_kit_libs_*` dependencies
+        run: |
+          sed -i '' 's/\bmedia_kit_libs\([^[ ]*\)_video\b/media_kit_libs\1_video_encoders_gpl/g' pubspec.yaml
+          cat pubspec.yaml
+      - run: flutter pub get
+      - run: flutter build macos --verbose
+
+  video-encoders-gpl-libs-ios:
+    name: iOS (video-encoders-gpl libs)
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: media_kit_test
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "true"
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
+      - name: Remove `media_kit_libs_*` dependencies
+        run: |
+          sed -i '' 's/\bmedia_kit_libs\([^[ ]*\)_video\b/media_kit_libs\1_video_encoders_gpl/g' pubspec.yaml
+          cat pubspec.yaml
+      - run: flutter pub get
+      - run: flutter build ios --verbose --no-codesign
+
+  video-encoders-gpl-libs-android:
+    name: Android (video-encoders-gpl libs)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: media_kit_test
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "true"
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
+      - name: Remove `media_kit_libs_*` dependencies
+        run: |
+          sed -i 's/\bmedia_kit_libs\([^[ ]*\)_video\b/media_kit_libs\1_video_encoders_gpl/g' pubspec.yaml
+          cat pubspec.yaml
+      - run: flutter pub get
+      - run: flutter build apk --split-per-abi --verbose

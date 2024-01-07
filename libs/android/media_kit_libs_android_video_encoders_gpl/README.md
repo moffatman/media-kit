@@ -8,4 +8,4 @@ Android package providing video (& audio) native transcoding libraries for [`pac
 
 Copyright © 2023 & onwards, Callum Moffat <<callum@moffatman.com>>
 
-This project & the work under this repository is governed by GPL license that can be found in the [LICENSE](./LICENSE) file.
+This project & the work under this repository is governed by GPL3 license that can be found in the [LICENSE](./LICENSE) file.

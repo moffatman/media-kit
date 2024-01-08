@@ -4,6 +4,6 @@
 
 #include <flutter/plugin_registrar_windows.h>
 
-void MediaKitLibsWindowsVideoEncodersGPLPluginCApiRegisterWithRegistrar(FlutterDesktopPluginRegistrarRef registrar) {
+void MediaKitLibsWindowsVideoEncodersGplPluginCApiRegisterWithRegistrar(FlutterDesktopPluginRegistrarRef registrar) {
   std::cout << "package:media_kit_libs_windows_video_encoders_gpl registered." << std::endl;
 }

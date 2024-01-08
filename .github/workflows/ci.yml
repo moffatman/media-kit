@@ -19,9 +19,9 @@ jobs:
 
       - name: Setup libmpv for Windows
         run: |
-          curl -LO https://github.com/media-kit/libmpv-win32-video-build/releases/download/2023-08-11/mpv-dev-x86_64-20230811-git-140ec21.7z
-          cmake -E md5sum mpv-dev-x86_64-20230811-git-140ec21.7z | find /i "c7d1d766a6404d58a876aca403e0f53a" > nul || exit 1
-          cmake -E tar x mpv-dev-x86_64-20230811-git-140ec21.7z libmpv-2.dll
+          curl -LO https://github.com/media-kit/libmpv-win32-video-encoders-gpl-build/releases/download/2023-09-13/mpv-dev-x86_64-20230913-git-662650b.7z
+          cmake -E md5sum mpv-dev-x86_64-20230913-git-662650b.7z | find /i "5224b075ccd111a0b5188e4b5bcca27f" > nul || exit 1
+          cmake -E tar x mpv-dev-x86_64-20230913-git-662650b.7z libmpv-2.dll
         shell: cmd
 
       - run: dart pub get
@@ -51,6 +51,7 @@ jobs:
     runs-on: macos-latest
     env:
       LIBMPV_LIBRARY_PATH: ${{ format('{0}/{1}', github.workspace, 'media_kit/test/ci/macos/libs/libmpv.dylib') }}
+      FFTOOLSFFI_LIBRARY_PATH: ${{ format('{0}/{1}', github.workspace, 'media_kit/test/ci/macos/libs/libfftools-ffi.dylib') }}
     defaults:
       run:
         working-directory: media_kit

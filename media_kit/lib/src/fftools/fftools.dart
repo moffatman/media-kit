@@ -265,7 +265,7 @@ class FFTools {
 			}
 			catch (_) {}
 		}
-		final paths = String.fromEnvironment('PATH').split(Platform.isWindows ? ';' : ':');
+		final paths = Platform.environment['PATH']?.split(Platform.isWindows ? ';' : ':') ?? [];
 		for (final path in paths) {
 			if (path.isEmpty) {
 				continue;

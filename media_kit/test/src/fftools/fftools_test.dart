@@ -24,7 +24,11 @@ Future<Map<String, dynamic>> _scan(String path) async {
 }
 
 void main() {
-	// TODO: Skip on web? Can  dart test even be run on web?
+	const bool kIsWeb = bool.fromEnvironment('dart.library.js_util');
+	if (kIsWeb) {
+		// fftools is not supported on web
+		return;
+	}
 	setUp(() async {
     MediaKit.ensureInitialized();
 

@@ -235,6 +235,14 @@ class FFTools {
 	static _FFTools? _fftools;
 
 	static _FFTools _resolve() {
+		// Attempt to load [LIBMPV_LIBRARY_PATH] environment variable.
+    try {
+      final env = Platform.environment['FFTOOLSFFI_LIBRARY_PATH'];
+      if (env != null) {
+        return _FFToolsLibrary(DynamicLibrary.open(env));
+      }
+    } catch (_) {}
+		// Attempt to load default names
 		final names = {
 			'macos': [
 				'Fftools-ffi.framework/Fftools-ffi',

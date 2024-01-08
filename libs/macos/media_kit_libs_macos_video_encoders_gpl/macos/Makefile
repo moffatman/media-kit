@@ -1,14 +1,13 @@
 all: Frameworks/*.xcframework Frameworks/.symlinks
 
 MPV_XCFRAMEWORKS_VERSION=v0.6.0
-# TODO = replace these links when v0.6.1 is packaged
-MPV_XCFRAMEWORKS_SHA256SUM=6c6422dfa65a3867349bc6cc54b5a7f6a129b884544e0bbe0961441b4c1cdc80
+MPV_XCFRAMEWORKS_SHA256SUM=9c5fa2c63f5410d4394b3ffeb9ef37e0c06b98f682a781f02fe8d71c9a1303d4
 
 .cache/xcframeworks/libmpv-xcframeworks-${MPV_XCFRAMEWORKS_VERSION}-macos-universal.tar.gz:
 	mkdir -p .cache/xcframeworks
 	rm -f .cache/xcframeworks/*.tmp .cache/xcframeworks/*-macos-universal.tar.gz
 	curl -L \
-		https://captcha.chance.surf/media-kit-4/libmpv-xcframeworks_develop_macos-universal-video-encodersgpl.tar.gz \
+		https://github.com/media-kit/libmpv-darwin-build/releases/download/${MPV_XCFRAMEWORKS_VERSION}/libmpv-xcframeworks_${MPV_XCFRAMEWORKS_VERSION}_macos-universal-video-encodersgpl.tar.gz \
 		-o .cache/xcframeworks/libmpv.tar.gz.tmp
 	shasum -a 256 -c <<< '${MPV_XCFRAMEWORKS_SHA256SUM}  .cache/xcframeworks/libmpv.tar.gz.tmp'
 	mv .cache/xcframeworks/libmpv.tar.gz.tmp .cache/xcframeworks/libmpv-xcframeworks-${MPV_XCFRAMEWORKS_VERSION}-macos-universal.tar.gz

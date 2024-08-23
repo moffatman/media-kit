@@ -9,6 +9,7 @@ class MediaKitUtils
   module Type
     AUDIO ||= 'audio'
     VIDEO ||= 'video'
+    VIDEO_ENCODERS_GPL ||= 'video_encoders_gpl'
   end
 
   def initialize(platform)

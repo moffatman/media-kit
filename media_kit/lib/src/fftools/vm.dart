@@ -13,26 +13,26 @@ const _kFFToolsMessageTypeReturnCode = 0;
 const _kFFToolsMessageTypeLog = 1;
 const _kFFToolsMessageTypeStatistics = 2;
 
-class FFToolsMessage extends Struct {
+final class FFToolsMessage extends Struct {
   @Int32()
   external int type;
   external FFToolsMessageUnion data;
 }
 
-class FFToolsMessageUnion extends Union {
+final class FFToolsMessageUnion extends Union {
   @Int32()
   external int returnCode;
   external FFToolsMessageLog log;
   external FFToolsMessageStatistics statistics;
 }
 
-class FFToolsMessageLog extends Struct {
+final class FFToolsMessageLog extends Struct {
   @Int32()
   external int level;
   external Pointer<Utf8> message;
 }
 
-class FFToolsMessageStatistics extends Struct {
+final class FFToolsMessageStatistics extends Struct {
   @Int32()
   external int frameNumber;
   @Float()

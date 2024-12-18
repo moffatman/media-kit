@@ -297,6 +297,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
 
       // To match NativePlayer behavior.
 
@@ -359,6 +362,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
 
       final int index;
       final List<Media> playlist = <Media>[];
@@ -448,6 +454,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
 
       element.innerHTML = ''.toJS;
       state = state.copyWith(track: Track());
@@ -555,6 +564,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
       element.play().toDart.catchError(
         (error) {
           // PlayerStream.error
@@ -582,6 +594,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
       element.pause();
     }
 
@@ -600,6 +615,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
       if (element.paused) {
         await play(synchronized: false);
       } else {
@@ -625,6 +643,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
 
       _playlist = [..._playlist, media];
 
@@ -656,6 +677,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
 
       // If we remove the last item in the playlist while playlist mode is none or single, then playback will stop.
       // In this situation, the playlist doesn't seem to be updated, so we manually update it.
@@ -752,6 +776,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
 
       Future<void> start() async {
         state = state.copyWith(
@@ -824,6 +851,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
 
       Future<void> start() async {
         state = state.copyWith(
@@ -897,6 +927,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
 
       _index = index;
 
@@ -942,6 +975,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
 
       // ---------------------------------------------
       final map = SplayTreeMap<double, Media>.from(
@@ -991,6 +1027,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
 
       element.currentTime = duration.inMilliseconds.toDouble() / 1000.0;
 
@@ -1020,6 +1059,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
       _playlistMode = playlistMode;
 
       state = state.copyWith(playlistMode: playlistMode);
@@ -1046,6 +1088,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
 
       // Unmute the player before setting the volume.
       if (element.muted) {
@@ -1074,6 +1119,10 @@ class WebPlayer extends PlatformPlayer {
 
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
 
       if (rate <= 0.0) {
         throw ArgumentError.value(
@@ -1105,6 +1154,10 @@ class WebPlayer extends PlatformPlayer {
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
 
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
+
       throw UnsupportedError('[Player.setPitch] is not supported on web');
 
       // if (pitch <= 0.0) {
@@ -1134,6 +1187,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
 
       final current = _playlist[_index];
 
@@ -1191,6 +1247,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
       throw UnsupportedError('[Player.setAudioDevice] is not supported on web');
     }
 
@@ -1212,6 +1271,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
       throw UnsupportedError(
         '[Player.setVideoTrack] is not supported on web',
       );
@@ -1235,6 +1297,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
 
       if (track.uri) {
         final children = <web.Element>[];
@@ -1290,6 +1355,9 @@ class WebPlayer extends PlatformPlayer {
       }
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
 
       // Reset existing Player.state.subtitle & Player.stream.subtitle.
       state = state.copyWith(
@@ -1428,6 +1496,10 @@ class WebPlayer extends PlatformPlayer {
 
       await waitForPlayerInitialization;
       await waitForVideoControllerInitializationIfAttached;
+
+      if (disposed) {
+        throw AssertionError('[Player] has been disposed');
+      }
 
       try {
         // Kind of limited in usage:

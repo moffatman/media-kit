@@ -45,7 +45,7 @@ class FFTools {
 			arguments: arguments,
 			logCallback: (level, message) {
 				if (level <= logLevel) {
-					buffer.writeln(message);
+					buffer.write(message);
 				}
 			},
 			statisticsCallback: statisticsCallback

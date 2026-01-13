@@ -58,16 +58,16 @@ task downloadDependencies(type: Exec) {
     
     // Download all *.jar dependencies & verify their MD5 checksums.
 
-    def urlEncodersGplARM64 = "https://github.com/media-kit/libmpv-android-video-build/releases/download/v1.1.6/encoders-gpl-arm64-v8a.jar"
-    def urlEncodersGplARMEABI = "https://github.com/media-kit/libmpv-android-video-build/releases/download/v1.1.6/encoders-gpl-armeabi-v7a.jar"
-    def urlEncodersGplX86_64 = "https://github.com/media-kit/libmpv-android-video-build/releases/download/v1.1.6/encoders-gpl-x86_64.jar"
-    def urlEncodersGplX86 = "https://github.com/media-kit/libmpv-android-video-build/releases/download/v1.1.6/encoders-gpl-x86.jar"
+    def urlEncodersGplARM64 = "https://github.com/media-kit/libmpv-android-video-build/releases/download/v1.1.9/encoders-gpl-arm64-v8a.jar"
+    def urlEncodersGplARMEABI = "https://github.com/media-kit/libmpv-android-video-build/releases/download/v1.1.9/encoders-gpl-armeabi-v7a.jar"
+    def urlEncodersGplX86_64 = "https://github.com/media-kit/libmpv-android-video-build/releases/download/v1.1.9/encoders-gpl-x86_64.jar"
+    def urlEncodersGplX86 = "https://github.com/media-kit/libmpv-android-video-build/releases/download/v1.1.9/encoders-gpl-x86.jar"
 
 
-    def destEncodersGplARM64 = file("$buildDir/v1.1.6/encoders-gpl-arm64-v8a.jar")
-    def destEncodersGplARMEABI = file("$buildDir/v1.1.6/encoders-gpl-armeabi-v7a.jar")
-    def destEncodersGplX86_64 = file("$buildDir/v1.1.6/encoders-gpl-x86_64.jar")
-    def destEncodersGplX86 = file("$buildDir/v1.1.6/encoders-gpl-x86.jar")
+    def destEncodersGplARM64 = file("$buildDir/v1.1.9/encoders-gpl-arm64-v8a.jar")
+    def destEncodersGplARMEABI = file("$buildDir/v1.1.9/encoders-gpl-armeabi-v7a.jar")
+    def destEncodersGplX86_64 = file("$buildDir/v1.1.9/encoders-gpl-x86_64.jar")
+    def destEncodersGplX86 = file("$buildDir/v1.1.9/encoders-gpl-x86.jar")
 
     if (!destEncodersGplARM64.exists()) {
         destEncodersGplARM64.parentFile.mkdirs()
@@ -99,16 +99,16 @@ task downloadDependencies(type: Exec) {
     def md5EncodersGplX86_64 = MessageDigest.getInstance("MD5").digest(Files.readAllBytes(destEncodersGplX86_64.toPath())).encodeHex().toString()
     def md5EncodersGplX86 = MessageDigest.getInstance("MD5").digest(Files.readAllBytes(destEncodersGplX86.toPath())).encodeHex().toString()
 
-    if (md5EncodersGplARM64 != "013fba94f7c547f5f4f81d069c54f4af") {
+    if (md5EncodersGplARM64 != "d8cc3cd066792cf0cea9fe0902138a70") {
         throw new GradleException("media_kit: arm64-v8a JAR verification failed.")
     }
-    if (md5EncodersGplARMEABI != "379ee82d4cb6edb4edcd7882ee4cf958") {
+    if (md5EncodersGplARMEABI != "9cb6661838da8a918452b93576eff63d") {
         throw new GradleException("media_kit: armeabi-v7a JAR verification failed.")
     }
-    if (md5EncodersGplX86_64 != "30532ad419d814173a114c88d116ce84") {
+    if (md5EncodersGplX86_64 != "fa91802c78825f34f6a81f4a12d6379f") {
         throw new GradleException("media_kit: x86_64 JAR verification failed.")
     }
-    if (md5EncodersGplX86 != "fa582c2f8acd8bf9556318aabeaef48b") {
+    if (md5EncodersGplX86 != "d4ba40a2ab6aaafb1734b5c88f7629fc") {
         throw new GradleException("media_kit: x86 JAR verification failed.")
     }
 

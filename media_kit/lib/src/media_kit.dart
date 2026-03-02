@@ -20,24 +20,24 @@ abstract class MediaKit {
   static bool _initialized = false;
 
   /// {@macro media_kit}
-  static void ensureInitialized({String? libmpv}) {
+  static Future<void> ensureInitialized({String? libmpv}) async {
     if (_initialized) return;
 
     try {
+      _initialized = true;
       if (UniversalPlatform.isWindows) {
-        nativeEnsureInitialized(libmpv: libmpv);
+        await nativeEnsureInitialized(libmpv: libmpv);
       } else if (UniversalPlatform.isLinux) {
-        nativeEnsureInitialized(libmpv: libmpv);
+        await nativeEnsureInitialized(libmpv: libmpv);
       } else if (UniversalPlatform.isMacOS) {
-        nativeEnsureInitialized(libmpv: libmpv);
+        await nativeEnsureInitialized(libmpv: libmpv);
       } else if (UniversalPlatform.isIOS) {
-        nativeEnsureInitialized(libmpv: libmpv);
+        await nativeEnsureInitialized(libmpv: libmpv);
       } else if (UniversalPlatform.isAndroid) {
-        nativeEnsureInitialized(libmpv: libmpv);
+        await nativeEnsureInitialized(libmpv: libmpv);
       } else if (UniversalPlatform.isWeb) {
         webEnsureInitialized(libmpv: libmpv);
       }
-      _initialized = true;
     } catch (_) {
       print(
         '\n'

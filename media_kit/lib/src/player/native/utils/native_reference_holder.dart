@@ -39,14 +39,14 @@ class NativeReferenceHolder {
   NativeReferenceHolder._();
 
   /// Initializes the instance.
-  static void ensureInitialized(NativeReferenceHolderCallback callback) {
+  static Future<void> ensureInitialized(NativeReferenceHolderCallback callback) async {
     if (!kDebugMode) return;
     if (initialized) return;
     initialized = true;
-    instance._ensureInitialized(callback);
+    await instance._ensureInitialized(callback);
   }
 
-  void _ensureInitialized(NativeReferenceHolderCallback callback) async {
+  Future<void> _ensureInitialized(NativeReferenceHolderCallback callback) async {
     if (!await _file.exists_()) {
       // Allocate reference buffer.
       _referenceBuffer = calloc<IntPtr>(kReferenceBufferSize);
